@@ -66,10 +66,7 @@ class IdMenu:
         return embed
 
     @staticmethod
-    async def respond_to_left(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_to_left(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         # Extract the query from the id state
         # TODO: let the user switch scroll modes in between then and now
         ims['query'] = ims['left_arrow']
@@ -78,10 +75,7 @@ class IdMenu:
         return id_control
 
     @staticmethod
-    async def respond_to_right(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_to_right(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         # Extract the query from the id state
         # TODO: let the user switch scroll modes in between then and now
         ims['query'] = ims['right_arrow']
@@ -97,55 +91,37 @@ class IdMenu:
         pass
 
     @staticmethod
-    async def respond_with_current_id(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_with_current_id(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await IdViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.id_control(view_state)
         return control
 
     @staticmethod
-    async def respond_with_evos(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_with_evos(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await EvosViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.evos_control(view_state)
         return control
 
     @staticmethod
-    async def respond_with_mats(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_with_mats(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await MaterialsViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.mats_control(view_state)
         return control
 
     @staticmethod
-    async def respond_with_picture(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_with_picture(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await PicViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.pic_control(view_state)
         return control
 
     @staticmethod
-    async def repond_with_pantheon(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def repond_with_pantheon(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await PantheonViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.pantheon_control(view_state)
         return control
 
     @staticmethod
-    async def respond_with_otherinfo(message: Optional[Message], ims, **data):
-        dgcog = data['dgcog']
-        user_config = data['user_config']
-
+    async def respond_with_otherinfo(message: Optional[Message], ims, *, dgcog, user_config, **junk):
         view_state = await OtherInfoViewState.deserialize(dgcog, user_config, ims)
         control = IdMenu.otherinfo_control(view_state)
         return control
