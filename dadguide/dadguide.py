@@ -71,6 +71,10 @@ class Dadguide(commands.Cog):
 
         self.token_maps = token_mappings
 
+        bot.add_dev_env_value('dgcog', lambda ctx: self)
+        bot.add_dev_env_value('graph', lambda ctx: self.database.graph)
+        bot.add_dev_env_valud('index2', lambda ctx: self.index2)
+
     async def wait_until_ready(self):
         """Wait until the Dadguide cog is ready.
 
