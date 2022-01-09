@@ -96,9 +96,9 @@ class BaseIdMainView(BaseIdView):
         desc = active_skill.desc
         for idx, awo_skill in awoken_skill_map.items():
             # locate awoken skill names within the same clause as "on the team"
-            phrase_find = re.escape(awo_skill.name_en) + r'([^;]*?) awoken skill on the team'
+            phrase_find = r'each ' + re.escape(awo_skill.name_en) + r'([^;]*?) awoken skill on the team'
             phrase_repl = awo_skill.name_en + r'\1 awoken skill on the team'
-            desc = re.sub(phrase_find, f"{get_awakening_emoji(idx)} {phrase_repl}", desc)
+            desc = re.sub(phrase_find, f"each {get_awakening_emoji(idx)} {phrase_repl}", desc)
         return desc
 
     @staticmethod
