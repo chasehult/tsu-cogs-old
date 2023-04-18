@@ -1,1 +1,1 @@
-We are no longer accpeting contributions for this repo.
+We are no longer accepting contributions for this repo.
