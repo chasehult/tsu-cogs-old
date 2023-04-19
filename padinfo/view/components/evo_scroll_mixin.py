@@ -65,6 +65,7 @@ class EvoScrollViewState:
 class EvoScrollView:
     @staticmethod
     def evos_embed_field(state: EvoScrollViewState):
+        return EmbedField("Evo view is currently unavailable.", "\u00A0")  # TODO: Remove this
         field_text = "**Evos**"
         help_text = ""
         # this isn't used right now, but maybe later if discord changes the api for embed titles...?
